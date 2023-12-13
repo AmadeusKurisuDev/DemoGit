@@ -1,1 +1,33 @@
-ciao mondo!
+<ListBox Grid.Row="0" Grid.RowSpan="4" ItemsSource="{Binding persona}" x:Name="myListBox">
+            <ListBox.Template>
+                <ControlTemplate>
+                    <DockPanel LastChildFill="True">
+                        <Grid DockPanel.Dock="Top" Height="20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label HorizontalAlignment="Center" Grid.Column="0" Style="{StaticResource labelcolumn}">Column 1</Label>
+                            <Label HorizontalAlignment="Center" Grid.Column="1" Style="{StaticResource labelcolumn}">Column 2</Label>
+                            <Label HorizontalAlignment="Center" Grid.Column="2" Style="{StaticResource labelcolumn}">Column 3</Label>
+                        </Grid>
+                        <ItemsPresenter></ItemsPresenter>
+                    </DockPanel>
+                </ControlTemplate>
+            </ListBox.Template>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{Binding Path=Nome}" TextAlignment="Center"/>
+                        <TextBlock Grid.Column="1" Text="{Binding Path=Cognome}" TextAlignment="Center"/>
+                        <TextBlock Grid.Column="2" Text="{Binding Path=Eta}" TextAlignment="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
